@@ -1,17 +1,14 @@
 import { Module } from '@nestjs/common';
-import { JogadoresModule } from './jogadores/jogadores.module';
-import {JogadoresService}   from './jogadores/jogadores.service';
 import {MongooseModule} from '@nestjs/mongoose';
-import { JogadorSchema } from './jogadores/interfaces/jogador.schema';
+import { ConfigModule } from '@nestjs/config';
+import { JogadoresModule } from './jogadores/jogadores.module';
 
 
 @Module({
   imports: [
-  MongooseModule.forFeature([{name:'Jogador', schema: JogadorSchema}]),
-  MongooseModule.forRoot('mongodb+srv://mardonis:bk6mZsCOsJI7nXor@smartcluster.v298i.mongodb.net/smartranking?retryWrites=true&w=majority'),
-  JogadoresModule,
-  ],
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGO_URI) , JogadoresModule],
   controllers: [],
-  providers: [JogadoresService],
+  providers: [],
 })
 export class AppModule {}

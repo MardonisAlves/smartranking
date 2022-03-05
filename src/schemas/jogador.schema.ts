@@ -18,4 +18,6 @@ export const JogadorSchema = new mongoose.Schema({
 
 
 
+
+
 	
