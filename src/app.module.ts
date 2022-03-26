@@ -7,7 +7,7 @@ import { JogadoresModule } from './jogadores/jogadores.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGO_URI) , JogadoresModule],
+    MongooseModule.forRoot(process.env.URL_MONGODB) , JogadoresModule],
   controllers: [],
   providers: [],
 })
